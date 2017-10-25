@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="le_mongo" />
+        <module name="lorne_mongo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="le_mongo" target="1.7" />
+      <module name="lorne_mongo" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
