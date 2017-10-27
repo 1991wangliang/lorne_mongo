@@ -8,7 +8,7 @@ mongo数据库框架
     <dependency>
         <groupId>com.github.1991wangliang</groupId>
         <artifactId>lorne_mongo</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
     
 ```

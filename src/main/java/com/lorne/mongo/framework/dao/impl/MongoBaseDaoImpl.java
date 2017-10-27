@@ -59,14 +59,19 @@ public class MongoBaseDaoImpl<T extends MongoEntity> implements MongoBaseDao<T> 
     @Override
     public Page<T> pageForBeanList(Query query, int nowPage, int pageSize, String tableName) {
         Page<T> page = new Page<T>();
-        long count = mongoTemplate.count(query, clazz);
+        long count;
+        if (StringUtils.isEmpty(tableName)) {
+            count = mongoTemplate.count(query, clazz);
+        }else{
+            count = mongoTemplate.count(query, clazz,tableName);
+        }
         page.setTotal((int) count);
 
         Pageable pageable = new PageRequest(nowPage - 1, pageSize);
         query.with(pageable);
-        List<T> list = null;
+        List<T> list;
         if (StringUtils.isEmpty(tableName)) {
-            mongoTemplate.find(query, clazz);
+            list = mongoTemplate.find(query, clazz);
         } else {
             list = mongoTemplate.find(query, clazz, tableName);
         }
